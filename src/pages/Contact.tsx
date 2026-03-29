@@ -26,7 +26,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-bold text-primary mb-1">Email Us</h4>
-                    <p className="text-gray-600">growth@interdot.agency</p>
+                    <p className="text-gray-600">advisory@interdot.net</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-6">
