@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle2, Target, Handshake, BarChart3 } from 'lucide-r
 const services = [
   {
     id: 'lead-gen',
+    imageUrl: 'https://i.postimg.cc/v1GRmPTT/2026-03-30-102842-gpt-image-1.png',
     icon: <Target className="w-12 h-12 text-accent" />,
     title: "B2B Lead Generation",
     description: "High-performance outbound systems designed to fill your calendar with qualified prospects.",
@@ -24,6 +25,7 @@ const services = [
   },
   {
     id: 'partnerships',
+    imageUrl: 'https://i.postimg.cc/hJKFGCvG/2026-03-30-102840-gpt-image-1.png',
     icon: <Handshake className="w-12 h-12 text-accent" />,
     title: "Strategic Partnerships",
     description: "Unlock new revenue streams by building high-value relationships with strategic partners.",
@@ -43,6 +45,7 @@ const services = [
   },
   {
     id: 'growth-systems',
+    imageUrl: 'https://i.postimg.cc/fVcnD4w5/2026-03-30-102838-gpt-image-1.png',
     icon: <BarChart3 className="w-12 h-12 text-accent" />,
     title: "Growth Systems",
     description: "The technical backbone of your sales engine. We optimize your tools for maximum output.",
@@ -134,7 +137,7 @@ export default function Services() {
               <div className="flex-1 w-full">
                 <div className="aspect-square bg-gray-100 rounded-[3rem] overflow-hidden relative group">
                   <img
-                    src={`https://picsum.photos/seed/${service.id}/800/800`}
+                    src={service.imageUrl}
                     alt={service.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
