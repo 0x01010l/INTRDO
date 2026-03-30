@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, Target, Handshake, BarChart3 } from 'lucide-r
 const services = [
   {
     id: 'lead-gen',
-    imageUrl: 'https://i.postimg.cc/v1GRmPTT/2026-03-30-102842-gpt-image-1.png',
+    imageUrl: 'https://i.postimg.cc/7CVQB04Q/2026-03-30-111102-gpt-image-1.png',
     icon: <Target className="w-12 h-12 text-accent" />,
     title: "B2B Lead Generation",
     description: "High-performance outbound systems designed to fill your calendar with qualified prospects.",
@@ -25,7 +25,7 @@ const services = [
   },
   {
     id: 'partnerships',
-    imageUrl: 'https://i.postimg.cc/hJKFGCvG/2026-03-30-102840-gpt-image-1.png',
+    imageUrl: 'https://i.postimg.cc/xkRFsMY9/2026-03-30-111104-gpt-image-1.png',
     icon: <Handshake className="w-12 h-12 text-accent" />,
     title: "Strategic Partnerships",
     description: "Unlock new revenue streams by building high-value relationships with strategic partners.",
@@ -45,7 +45,7 @@ const services = [
   },
   {
     id: 'growth-systems',
-    imageUrl: 'https://i.postimg.cc/fVcnD4w5/2026-03-30-102838-gpt-image-1.png',
+    imageUrl: 'https://i.postimg.cc/Ny4PNmYc/2026-03-30-111106-gpt-image-1.png',
     icon: <BarChart3 className="w-12 h-12 text-accent" />,
     title: "Growth Systems",
     description: "The technical backbone of your sales engine. We optimize your tools for maximum output.",
