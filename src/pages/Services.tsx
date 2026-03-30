@@ -134,7 +134,7 @@ export default function Services() {
               <div className="flex-1 w-full">
                 <div className="aspect-square bg-gray-100 rounded-[3rem] overflow-hidden relative group">
                   <img
-                    src={`https://i.postimg.cc/fVcnD4w5/2026-03-30-102838-gpt-image-1.png`}
+                    src={`https://picsum.photos/seed/${service.id}/800/800`}
                     alt={service.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
