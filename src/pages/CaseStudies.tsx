@@ -13,7 +13,7 @@ const cases = [
       { label: "Pipeline Generated", value: "$1.2M" },
       { label: "Response Rate", value: "12%" }
     ],
-    img: "https://picsum.photos/seed/case1/800/600"
+    img: "https://i.postimg.cc/9XGXhy9W/Screenshot-2026-03-31-at-09-19-07.png"
   },
   {
     client: "Nexus Logistics",
@@ -25,7 +25,7 @@ const cases = [
       { label: "Revenue Growth", value: "35%" },
       { label: "ROI", value: "14x" }
     ],
-    img: "https://picsum.photos/seed/case2/800/600"
+    img: "https://i.postimg.cc/05p5s7SN/Screenshot-2026-03-31-at-09-19-51.png"
   },
   {
     client: "FinTech Flow",
@@ -37,7 +37,7 @@ const cases = [
       { label: "Market Reach", value: "2M+" },
       { label: "CAC Reduction", value: "28%" }
     ],
-    img: "https://picsum.photos/seed/case3/800/600"
+    img: "https://i.postimg.cc/Kcnc2tTz/Screenshot-2026-03-31-at-09-20-21.png"
   }
 ];
 
