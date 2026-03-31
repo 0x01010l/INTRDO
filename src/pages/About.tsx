@@ -91,30 +91,7 @@ export default function About() {
       </section>
 
       {/* Team */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl font-bold mb-6">Meet the Strategists</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">A diverse team of experts dedicated to your growth.</p>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-            {[
-              { name: "Alex Rivers", role: "Founder & CEO", img: "https://picsum.photos/seed/alex/400/400" },
-              { name: "Sarah Chen", role: "Head of Strategy", img: "https://picsum.photos/seed/sarah/400/400" },
-              { name: "Marcus Thorne", role: "Director of Partnerships", img: "https://picsum.photos/seed/marcus/400/400" }
-            ].map((member, i) => (
-              <div key={i} className="group">
-                <div className="aspect-square rounded-3xl overflow-hidden mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
-                  <img src={member.img} alt={member.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
-                </div>
-                <h3 className="text-xl font-bold text-primary">{member.name}</h3>
-                <p className="text-accent font-medium">{member.role}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="py-24 bg-white">
