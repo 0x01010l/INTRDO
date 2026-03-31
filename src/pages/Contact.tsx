@@ -35,7 +35,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-bold text-primary mb-1">Call Us</h4>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                    <p className="text-gray-600">+1 (212) 317-9162</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-6">
@@ -44,7 +44,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-bold text-primary mb-1">Visit Us</h4>
-                    <p className="text-gray-600">123 Growth Ave, San Francisco, CA</p>
+                    <p className="text-gray-600">6545 Market Avenue North, North Canton, OH</p>
                   </div>
                 </div>
               </div>
