@@ -142,7 +142,7 @@ export default function Services() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors" />
+                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-transparent transition-colors" />
                 </div>
               </div>
             </div>
