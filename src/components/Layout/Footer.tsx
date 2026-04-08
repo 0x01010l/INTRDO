@@ -70,7 +70,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-gray-500">
           <p>© 2026 Interdot Agency. All rights reserved.</p>
           <div className="flex space-x-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
           </div>
         </div>
