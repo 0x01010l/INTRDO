@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 
-export default function PrivacyPolicy() {
+export default function privacy() {
   return (
     <div className="pt-20">
       <section className="py-24 bg-white">
