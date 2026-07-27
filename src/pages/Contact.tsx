@@ -1,7 +1,28 @@
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, Send, Calendar } from 'lucide-react';
+import { Mail, Phone, MapPin, Calendar } from 'lucide-react';
+import { useEffect } from 'react';
 
 export default function Contact() {
+  useEffect(() => {
+    // Load Tally embed script
+    const script = document.createElement('script');
+    script.src = 'https://tally.so/widgets/embed.js';
+    script.async = true;
+    script.onload = () => {
+      if (typeof window.Tally !== 'undefined') {
+        window.Tally.loadEmbeds();
+      }
+    };
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup if needed
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
     <div className="pt-20">
       <section className="py-24 bg-white">
@@ -61,63 +82,23 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Form */}
+            {/* Form - Tally Embed */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-gray-50 p-10 md:p-16 rounded-[3rem] shadow-sm"
+              className="bg-gray-50 p-10 md:p-16 rounded-[3rem] shadow-sm flex items-center justify-center"
             >
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-primary uppercase tracking-wider">First Name</label>
-                    <input
-                      type="text"
-                      className="w-full bg-white border border-gray-200 rounded-xl py-4 px-6 focus:outline-none focus:border-accent transition-colors"
-                      placeholder="John"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-primary uppercase tracking-wider">Last Name</label>
-                    <input
-                      type="text"
-                      className="w-full bg-white border border-gray-200 rounded-xl py-4 px-6 focus:outline-none focus:border-accent transition-colors"
-                      placeholder="Doe"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-primary uppercase tracking-wider">Work Email</label>
-                  <input
-                    type="email"
-                    className="w-full bg-white border border-gray-200 rounded-xl py-4 px-6 focus:outline-none focus:border-accent transition-colors"
-                    placeholder="john@company.com"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-primary uppercase tracking-wider">Company Name</label>
-                  <input
-                    type="text"
-                    className="w-full bg-white border border-gray-200 rounded-xl py-4 px-6 focus:outline-none focus:border-accent transition-colors"
-                    placeholder="Acme Corp"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-primary uppercase tracking-wider">How can we help?</label>
-                  <textarea
-                    rows={4}
-                    className="w-full bg-white border border-gray-200 rounded-xl py-4 px-6 focus:outline-none focus:border-accent transition-colors"
-                    placeholder="Tell us about your growth goals..."
-                  />
-                </div>
-                <button className="w-full bg-primary text-white py-5 rounded-full text-lg font-bold hover:bg-primary/90 transition-all flex items-center justify-center group shadow-lg">
-                  Send Message
-                  <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </button>
-                <p className="text-center text-xs text-gray-400 pt-4">
-                  By submitting this form, you agree to our Privacy Policy.
-                </p>
-              </form>
+              <iframe
+                data-tally-src="https://tally.so/embed/jaXl9Q?dynamicHeight=1&formEventsForwarding=1"
+                loading="lazy"
+                style={{
+                  width: '100%',
+                  height: '500px',
+                  border: 'none',
+                  borderRadius: '0.75rem',
+                }}
+                title="Contact Form"
+              />
             </motion.div>
           </div>
         </div>
