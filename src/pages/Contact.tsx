@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Calendar } from 'lucide-react';
 import { useEffect } from 'react';
-  
+
 export default function Contact() {
   useEffect(() => {
     // Load Tally embed script
@@ -9,8 +9,8 @@ export default function Contact() {
     script.src = 'https://tally.so/widgets/embed.js';
     script.async = true;
     script.onload = () => {
-      if (typeof window.Tally !== 'undefined') {
-        window.Tally.loadEmbeds();
+      if (typeof (window as any).Tally !== 'undefined') {
+        (window as any).Tally.loadEmbeds();
       }
     };
     document.body.appendChild(script);
@@ -91,9 +91,9 @@ export default function Contact() {
               <iframe
                 data-tally-src="https://tally.so/embed/jaXl9Q?dynamicHeight=1&formEventsForwarding=1"
                 loading="lazy"
+                width="100%"
+                height="500"
                 style={{
-                  width: '100%',
-                  height: '500px',
                   border: 'none',
                   borderRadius: '0.75rem',
                 }}
