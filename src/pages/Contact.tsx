@@ -1,7 +1,54 @@
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Send, Calendar } from 'lucide-react';
+import React from 'react';
 
 export default function Contact() {
+  // Keep the existing UI exactly; attach a submit handler that reads the form values by name
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const form = new FormData(e.currentTarget);
+      const payload = {
+        firstName: form.get('firstName') || '',
+        lastName: form.get('lastName') || '',
+        email: form.get('email') || '',
+        company: form.get('company') || '',
+        message: form.get('message') || '',
+        honeypot: form.get('honeypot') || '',
+      };
+
+      // Basic client-side validation
+      if (!payload.email || !payload.message) {
+        alert('Please provide an email and a message.');
+        return;
+      }
+
+      // Disable double submissions by setting the button disabled via a simple attribute change
+      const submitButton = e.currentTarget.querySelector('button');
+      if (submitButton) submitButton.setAttribute('disabled', 'true');
+
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        alert('Message sent — we will get back to you shortly.');
+        e.currentTarget.reset();
+      } else {
+        const json = await res.json().catch(() => null);
+        alert(json?.error || 'Failed to send message');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Network error');
+    } finally {
+      const submitButton = (e.currentTarget as HTMLFormElement).querySelector('button');
+      if (submitButton) submitButton.removeAttribute('disabled');
+    }
+  };
+
   return (
     <div className="pt-20">
       <section className="py-24 bg-white">
@@ -67,11 +114,15 @@ export default function Contact() {
               animate={{ opacity: 1, y: 0 }}
               className="bg-gray-50 p-10 md:p-16 rounded-[3rem] shadow-sm"
             >
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                {/* Honeypot (hidden) */}
+                <input name="honeypot" type="text" autoComplete="off" tabIndex={-1} style={{ display: 'none' }} />
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-primary uppercase tracking-wider">First Name</label>
                     <input
+                      name="firstName"
                       type="text"
                       className="w-full bg-white border border-gray-200 rounded-xl py-4 px-6 focus:outline-none focus:border-accent transition-colors"
                       placeholder="John"
@@ -80,6 +131,7 @@ export default function Contact() {
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-primary uppercase tracking-wider">Last Name</label>
                     <input
+                      name="lastName"
                       type="text"
                       className="w-full bg-white border border-gray-200 rounded-xl py-4 px-6 focus:outline-none focus:border-accent transition-colors"
                       placeholder="Doe"
@@ -89,6 +141,7 @@ export default function Contact() {
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-primary uppercase tracking-wider">Work Email</label>
                   <input
+                    name="email"
                     type="email"
                     className="w-full bg-white border border-gray-200 rounded-xl py-4 px-6 focus:outline-none focus:border-accent transition-colors"
                     placeholder="john@company.com"
@@ -97,6 +150,7 @@ export default function Contact() {
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-primary uppercase tracking-wider">Company Name</label>
                   <input
+                    name="company"
                     type="text"
                     className="w-full bg-white border border-gray-200 rounded-xl py-4 px-6 focus:outline-none focus:border-accent transition-colors"
                     placeholder="Acme Corp"
@@ -105,6 +159,7 @@ export default function Contact() {
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-primary uppercase tracking-wider">How can we help?</label>
                   <textarea
+                    name="message"
                     rows={4}
                     className="w-full bg-white border border-gray-200 rounded-xl py-4 px-6 focus:outline-none focus:border-accent transition-colors"
                     placeholder="Tell us about your growth goals..."
