@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Calendar } from 'lucide-react';
 import { useEffect } from 'react';
-
+  
 export default function Contact() {
   useEffect(() => {
     // Load Tally embed script
